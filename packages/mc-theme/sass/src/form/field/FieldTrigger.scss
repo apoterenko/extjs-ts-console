@@ -1,0 +1,51 @@
+/**
+ * Creates a visual theme for a "fieldtrigger"-ui field.
+ * @member Ext.form.field.Text
+ */
+@include extjs-text-field-ui(
+  $ui: 'fieldtrigger',
+  $ui-border-width: 0
+);
+
+/**
+ * FieldTrigger plugin
+ */
+.#{$prefix}field-fieldtrigger {
+
+  .#{$prefix}form-text-fieldtrigger {
+    float: left;
+    border: 1px solid transparent;
+    cursor: pointer;
+  }
+
+  .#{$prefix}form-text-wrap-focus {
+
+    .#{$prefix}form-text-fieldtrigger {
+      border-color: $form-text-field-border-color;
+      cursor: text;
+    }
+
+    .field-trigger-action {
+      visibility: visible;
+    }
+  }
+
+  .field-trigger-action {
+    width: 16px;
+    height: 16px;
+    margin-top: 3px;
+    margin-left: 4px;
+    float: left;
+    cursor: pointer;
+    visibility: hidden;
+    background-repeat: no-repeat;
+
+    &.field-trigger-apply {
+      background-image: url("images/field/apply.png");
+    }
+
+    &.field-trigger-cancel {
+      background-image: url("images/field/cancel.png");
+    }
+  }
+}

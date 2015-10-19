@@ -991,9 +991,10 @@ Ext.Boot = Ext.Boot || (function (emptyFn) {
 
             var charset = cfg.charset || Boot.config.charset,
                 manifest = Ext.manifest,
+                versionMap = manifest && manifest.versionMap,
                 loader = manifest && manifest.loader,
                 cache = (cfg.cache !== undefined) ? cfg.cache : (loader && loader.cache),
-                buster, busterParam;
+                buster, busterParam, versionExpression;
 
             if (Boot.config.disableCaching) {
                 if (cache === undefined) {
@@ -1007,8 +1008,14 @@ Ext.Boot = Ext.Boot || (function (emptyFn) {
                 }
 
                 if (buster) {
+                    if (versionMap) {
+                        versionExpression = /.+\/(.*.js)/.exec(cfg.url);
+                        versionExpression && versionExpression.length > 1 && (versionExpression = versionMap[versionExpression[1]]);
+                        versionExpression = versionExpression || versionMap["*"];
+                    }
+
                     busterParam = (loader && loader.cacheParam) || Boot.config.disableCachingParam;
-                    buster = busterParam + "=" + buster;
+                    buster = busterParam + "=" + (versionExpression || buster);
                 }
             }
 

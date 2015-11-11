@@ -23,42 +23,40 @@ Ext.define('ManagementConsole.plugin.form.field.FieldAutoUpdater', {
      *
      * @private
      * @param {Ext.form.field.Field} field Field
-     * @param newValue New value
      */
-    onFieldDirtyValue: function (field, newValue) {
-        var form = field.findParentBy(this.findFieldParent),
-            record = form ? form.getRecord() : null,
+    onFieldDirtyValue: function (field) {
+        var form = field.findParentBy(this.isInstanceOfPanel),
+            formRecord = form ? form.getRecord() : null,
+            fieldValue = field.getValue(),
             modelVersion,
-            saveConfig;
+            operationConfig;
 
-        newValue = Ext.isDefined(newValue) ? newValue : field.getValue();
+        if (formRecord && !formRecord.phantom) {
+            formRecord.set(field.getName(), fieldValue);
 
-        if (record) {
-            record.set(field.getName(), newValue);
-
-            saveConfig = {
+            operationConfig = {
                 params: {}
             };
 
-            modelVersion = record.get('version');
+            modelVersion = formRecord.get('version');
             if (!Ext.isEmpty(modelVersion)) {
-                saveConfig.params.version = modelVersion;
+                operationConfig.params.version = modelVersion;
             }
 
-            field.fireEvent('beforeupdate', field, newValue);
-
-            record.save(saveConfig);
+            if (field.fireEvent('beforeupdate', field, fieldValue) !== false) {
+                formRecord.save(operationConfig);
+            }
         }
     },
 
     /**
-     * Find field parent
+     * Is panel instance of Form Panel
      *
      * @private
      * @param parent Parent
      * @returns {boolean}
      */
-    findFieldParent: function (parent) {
+    isInstanceOfPanel: function (parent) {
         return parent instanceof Ext.form.Panel;
     }
 });

@@ -32,8 +32,6 @@ Ext.define('ManagementConsole.plugin.form.field.FieldAutoUpdater', {
             operationConfig;
 
         if (formRecord && !formRecord.phantom) {
-            formRecord.set(field.getName(), fieldValue);
-
             operationConfig = {
                 params: {}
             };
@@ -44,6 +42,7 @@ Ext.define('ManagementConsole.plugin.form.field.FieldAutoUpdater', {
             }
 
             if (field.fireEvent('beforeupdate', field, fieldValue) !== false) {
+                formRecord.set(field.getName(), fieldValue);
                 formRecord.save(operationConfig);
             }
         }

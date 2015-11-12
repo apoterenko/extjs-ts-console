@@ -4,15 +4,13 @@
  */
 export class EditorViewControllerT extends Ext.app.ViewController {
 
-    /**
-     * @inheritdoc
-     */
-    alias = ['controller.editor.view'];
+	// @inheritdoc
+	alias = ['controller.editor.view'];
 
-    /**
-     * Editor view close handler
-     */
-    onEditorViewClose() {
-        this.fireEvent('closeeditor', this, this.getView());
-    }
+	/**
+	 * Editor view close handler
+	 */
+	onEditorViewClose() {
+		this.fireEvent('closeeditor', this, this.getView());
+	}
 }

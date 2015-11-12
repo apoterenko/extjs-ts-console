@@ -7,81 +7,51 @@ export import editorViewControllerT = require("./EditorViewControllerT");
  */
 export class EditorViewT extends Ext.window.Window {
 
-    /**
-     * @inheritdoc
-     */
-    alias = ['widget.editor.view'];
+	// @inheritdoc
+	alias = ['widget.editor.view'];
 
-    /**
-     * @inheritdoc
-     */
-    layout = 'fit';
+	// @inheritdoc
+	layout = 'fit';
 
-    /**
-     * @inheritdoc
-     */
-    ui = 'editor';
+	// @inheritdoc
+	ui = 'editor';
 
-    /**
-     * @inheritdoc
-     */
-    controller = 'editor.view';
+	// @inheritdoc
+	controller = 'editor.view';
 
-    /**
-     * @inheritdoc
-     */
-    resizable = false;
+	// @inheritdoc
+	resizable = false;
 
-    /**
-     * @inheritdoc
-     */
-    header = false;
+	// @inheritdoc
+	header = false;
 
-    /**
-     * @inheritdoc
-     */
-    width = 576;
+	// @inheritdoc
+	width = 576;
 
-    /**
-     * @inheritdoc
-     */
-    tbar = {
-        /**
-         * @inheritdoc
-         */
-        ui: 'property',
+	// @inheritdoc
+	tbar = {
+		// @inheritdoc
+		ui: 'property',
 
-        /**
-         * @inheritdoc
-         */
-        defaults: {
+		// @inheritdoc
+		defaults: {
 
-            /**
-             * @inheritdoc
-             */
-            scale: 'large',
+			// @inheritdoc
+			scale: 'large',
 
-            /**
-             * @inheritdoc
-             */
-            ui: 'property'
-        },
+			// @inheritdoc
+			ui: 'property'
+		},
 
-        /**
-         * @inheritdoc
-         */
-        items: [
-            {
-                /**
-                 * @inheritdoc
-                 */
-                iconCls: 'icon-close',
+		// @inheritdoc
+		items: [
+			{
+				// @inheritdoc
+				iconCls: 'icon-close',
 
-                /**
-                 * @inheritdoc
-                 */
-                handler: 'onEditorViewClose'
-            }
-        ]
-    }
+				// @inheritdoc
+				handler: 'onEditorViewClose'
+			}
+		]
+	}
 }

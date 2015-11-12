@@ -5,28 +5,30 @@
  */
 Ext.define('ManagementConsole.service.EventManager', {
 
-    /**
-     * @inheritdoc
-     */
-    mixins: ['Ext.mixin.Observable'],
+	// @inheritdoc
+	mixins: ['Ext.mixin.Observable'],
 
-    /**
-     * @inheritdoc
-     */
-    constructor: function (config) {
-        this.mixins.observable.constructor.call(this, config);
+	// @inheritdoc
+	constructor: function (config) {
+		this.mixins.observable.constructor.call(this, config);
 
-        this.callParent(arguments);
+		this.callParent(arguments);
 
-        Ext.getBody().on('mousedown', this.onMouseDown, this);
-    },
+		Ext.getBody().on('mousedown', this.onMouseDown, this);
+	},
 
-    /**
-     * @private
-     */
-    onMouseDown: function (event) {
-        if (this.fireEvent('beforeglobaldown', event, event.target) !== false) {
-            this.fireEvent('globaldown', event, event.target);
-        }
-    }
+	// @private
+	onMouseDown: function (event) {
+		if (this.fireEvent('beforeglobaldown', event, event.target) !== false) {
+			this.fireGlobalDownEvent(event);
+		}
+	},
+
+	/**
+	 * Fire the global down event
+	 * @param event Event
+	 */
+	fireGlobalDownEvent: function (event) {
+		this.fireEvent('globaldown', event, event.target);
+	}
 });

@@ -6,14 +6,10 @@
 Ext.define('ManagementConsole.plugin.form.field.FieldTrigger', {
 	extend: 'Ext.AbstractPlugin',
 
-	/**
-	 * @inheritdoc
-	 */
+	// @inheritdoc
 	alias: 'plugin.field.trigger',
 
-	/**
-	 * @private
-	 */
+	// @private
 	triggerUI: 'fieldtrigger',
 
 	/**
@@ -24,18 +20,14 @@ Ext.define('ManagementConsole.plugin.form.field.FieldTrigger', {
 	/**
 	 * Array actions
 	 */
-    actions: [],
+	actions: [],
 
-	/**
-	 * @private
-	 */
+	// @private
 	inject: [
 		'eventManager'
 	],
 
-	/**
-	 * @inheritdoc
-	 */
+	// @inheritdoc
 	config: {
 		/**
 		 * Event manager
@@ -44,9 +36,7 @@ Ext.define('ManagementConsole.plugin.form.field.FieldTrigger', {
 		eventManager: null
 	},
 
-	/**
-	 * @inheritdoc
-	 */
+	// @inheritdoc
 	init: function (field) {
 		field.__fieldTriggerScope = {};
 

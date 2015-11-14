@@ -1,0 +1,33 @@
+/**
+ * Creates a visual theme for a "navigation"-ui panel.
+ * @member Ext.panel.Panel
+ */
+@include extjs-panel-ui(
+  $ui: 'navigation',
+
+  $ui-header-background-color: $palette-navigation-background-color,
+  $ui-body-background-color: $palette-navigation-background-color
+);
+
+.#{$prefix}panel-navigation {
+
+  &.compact-mode {
+    .#{$prefix}title-text-navigation {
+      visibility: hidden;
+    }
+
+    .icon-powered {
+      background: none;
+    }
+  }
+}
+
+/**
+ * Creates a visual theme for a "property"-ui panel.
+ * @member Ext.panel.Panel
+ */
+@include extjs-panel-ui(
+  $ui: 'property',
+
+  $ui-body-border-width: 0
+);

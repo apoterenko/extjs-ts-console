@@ -1,0 +1,45 @@
+/**
+ * Creates a visual theme for a {@link #scale large} "property"-ui Button.
+ * @member Ext.button.Button
+ */
+@include extjs-button-large-ui(
+  $ui: 'property',
+
+  $background-color-over: $palette-property-button-over-background-color
+);
+
+/**
+ * Creates a visual theme for a {@link #scale large} "navigation"-ui Button.
+ * @member Ext.button.Button
+ */
+@include extjs-button-large-ui(
+  $ui: 'navigation',
+
+  $color: $palette-navigation-text-color,
+  $background-color: $palette-navigation-background-color,
+  $background-color-pressed: $palette-navigation-background-color
+);
+
+.#{$prefix}btn-navigation-large {
+
+  &.btn-collapse {
+    @include get-navigation-icon($icon: 'right');
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+}
+
+.#{$prefix}panel-navigation {
+
+  &.compact-mode {
+    .#{$prefix}btn-inner-navigation-large {
+      display: none;
+    }
+
+    .#{$prefix}btn-navigation-large {
+      &.btn-collapse {
+        background: none;
+      }
+    }
+  }
+}

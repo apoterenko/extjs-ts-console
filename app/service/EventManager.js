@@ -27,8 +27,9 @@ Ext.define('ManagementConsole.service.EventManager', {
 	/**
 	 * Fire the global down event
 	 * @param event Event
+	 * @param target Target
 	 */
-	fireGlobalDownEvent: function (event) {
-		this.fireEvent('globaldown', event, event.target);
+	fireGlobalDownEvent: function (event, target) {
+		this.fireEvent('globaldown', event, target || event.target);
 	}
 });

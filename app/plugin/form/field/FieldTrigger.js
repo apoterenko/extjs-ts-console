@@ -12,14 +12,10 @@ Ext.define('ManagementConsole.plugin.form.field.FieldTrigger', {
 	// @private
 	triggerUI: 'fieldtrigger',
 
-	/**
-	 * @protected
-	 */
+	// @protected
 	fieldTriggerPrefixCls: 'field-trigger-',
 
-	/**
-	 * Array actions
-	 */
+	// Array actions
 	actions: [],
 
 	// @private
@@ -41,10 +37,12 @@ Ext.define('ManagementConsole.plugin.form.field.FieldTrigger', {
 		field.__fieldTriggerScope = {};
 
 		field.setUI(this.triggerUI);
+		field.addCls(this.fieldTriggerPrefixCls + 'default');
 
 		field.on({
 			scope: this,
 			focus: this.onFieldFocus,
+			blur: this.onFieldBlur,
 			afterrender: this.onFieldAfterRender,
 			specialkey: this.onSpecialKey,
 			hasfieldtargetaction: this.hasFieldTargetAction
@@ -162,7 +160,22 @@ Ext.define('ManagementConsole.plugin.form.field.FieldTrigger', {
 	 * @param {Ext.form.field.Field} field Field
 	 */
 	onFieldFocus: function (field) {
+		if (field.fireEvent('beforefieldfocus', this, field) !== false) {
+			field.removeCls(this.fieldTriggerPrefixCls + 'default');
+		}
 		this.bindGlobalDown(field);
+	},
+
+	/**
+	 * Field blur handler
+	 *
+	 * @protected
+	 * @param {Ext.form.field.Field} field Field
+	 */
+	onFieldBlur: function (field) {
+		if (field.fireEvent('beforefieldblur', this, field) !== false) {
+			field.addCls(this.fieldTriggerPrefixCls + 'default');
+		}
 	},
 
 	/**

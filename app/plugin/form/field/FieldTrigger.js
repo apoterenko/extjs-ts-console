@@ -230,7 +230,7 @@ Ext.define('ManagementConsole.plugin.form.field.FieldTrigger', {
 	 * @param field Field
 	 */
 	bindGlobalDown: function (field) {
-		Ext.log({msg: '[FIELD_TRIGGER]: bind global down'}, ' >> field name: ' + field.getName());
+		Ext.log({msg: '[FIELD_TRIGGER]: bindGlobalDown'}, ' >> field name: ' + field.getName());
 
 		field.mon(this.getEventManager(), 'globaldown', this.onGlobalDown, this, field);
 	},
@@ -241,7 +241,7 @@ Ext.define('ManagementConsole.plugin.form.field.FieldTrigger', {
 	 * @param field Field
 	 */
 	unbindGlobalDown: function (field) {
-		Ext.log({msg: '[FIELD_TRIGGER]: unbind global down'}, ' >> field name: ' + field.getName());
+		Ext.log({msg: '[FIELD_TRIGGER]: unbindGlobalDown'}, ' >> field name: ' + field.getName());
 
 		field.mun(this.getEventManager(), 'globaldown', this.onGlobalDown, this);
 	}

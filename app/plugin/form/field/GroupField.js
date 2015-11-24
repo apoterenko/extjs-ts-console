@@ -226,21 +226,10 @@ Ext.define('ManagementConsole.plugin.form.field.GroupField', {
 	 * @param context Context
 	 */
 	onRelatedFieldDeactivate: function (field, target, context) {
-		var masterField;
-
 		if (this.isTargetInputElementOfRelatedField(target, context) || !this.isValidRelatedFields(context)) {
 			return;
 		}
-		masterField = this.getMasterField(context);
-
-		Ext.suspendLayouts();
-		masterField.show();
-		Ext.Array.each(this.getRelatedFields(context), function (relatedField) {
-			relatedField.hide();
-		});
-		Ext.resumeLayouts(true);
-
-		this.bindBeforeGlobalDownToMaster(false, context);
+		this.changeState(true, context);
 	},
 
 	/**
@@ -267,7 +256,6 @@ Ext.define('ManagementConsole.plugin.form.field.GroupField', {
 	 */
 	onMasterFieldFocus: function (field, event, context) {
 		this.changeState(false, context);
-		this.bindBeforeGlobalDownToMaster(true, context);
 	},
 
 	/**
@@ -345,6 +333,9 @@ Ext.define('ManagementConsole.plugin.form.field.GroupField', {
 		});
 
 		Ext.resumeLayouts(true);
+
+		// Bind/unbind event listener from master
+		this.bindBeforeGlobalDownToMaster(!activateMaster, context);
 	},
 
 	/**

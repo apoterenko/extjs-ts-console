@@ -190,10 +190,6 @@
             {
                 "path": "${application.amd.output.js}",
                 "bundle": false
-            },
-            {
-                "path": "${application.output.js}",
-                "bundle": false
             }
         ],
         "versionMap": {

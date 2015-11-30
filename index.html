@@ -13,7 +13,23 @@
 
     <title>ManagementConsole</title>
 
-    
+    <script type="text/javascript">
+        /**
+         * TODO May be it will be better to inject the script via app.json
+         */
+        var require = {
+            paths: {
+                "mc": "./classic/mc"
+            }
+        };
+        //<debug>
+        /**
+         * The mc.js is one of the production build files not the development one.
+         */
+        require = {};
+        //</debug>
+    </script>
+
     <script type="text/javascript">
         var Ext = Ext || {}; // Ext namespace won't be defined yet...
 

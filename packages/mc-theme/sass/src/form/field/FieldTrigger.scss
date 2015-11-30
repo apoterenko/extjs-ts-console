@@ -13,20 +13,17 @@
 .#{$prefix}field-fieldtrigger {
 
   .#{$prefix}form-text-fieldtrigger {
-    float: left;
-    border: 1px solid transparent;
-    cursor: pointer;
+    border: 1px solid $form-text-field-border-color;
   }
 
-  .#{$prefix}form-text-wrap-focus {
-
+  &.field-trigger-default {
     .#{$prefix}form-text-fieldtrigger {
-      border-color: $form-text-field-border-color;
-      cursor: text;
+      border-color: transparent;
+      cursor: pointer;
     }
 
     .field-trigger-action {
-      visibility: visible;
+      visibility: hidden;
     }
   }
 
@@ -35,9 +32,8 @@
     height: 16px;
     margin-top: 3px;
     margin-left: 4px;
-    float: left;
     cursor: pointer;
-    visibility: hidden;
+    display: inline-block;
     background-repeat: no-repeat;
 
     &.field-trigger-apply {

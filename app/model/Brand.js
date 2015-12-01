@@ -25,7 +25,10 @@ Ext.define('ManagementConsole.model.Brand', {
 
 	// @inheritdoc
 	proxy: {
+		// @inheritdoc
 		type: 'restproxy',
+
+		// @inheritdoc
 		url: 'groups/{id}/brand'
 	}
 });

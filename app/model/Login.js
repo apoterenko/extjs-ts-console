@@ -38,6 +38,9 @@ Ext.define('ManagementConsole.model.Login', {
 		type: 'restproxy',
 
 		// @inheritdoc
+		url: 'login',
+
+		// @inheritdoc
 		noCache: true
 	}
 });

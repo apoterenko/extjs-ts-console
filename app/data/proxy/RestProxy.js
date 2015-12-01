@@ -85,6 +85,9 @@ Ext.define('ManagementConsole.data.proxy.RestProxy', {
 		this.withCredentials = this.cors !== false;
 
 		this.callParent(arguments);
+
+		// Override current proxy instance
+		Ext.merge(this, this.getRestConfig().proxyConfig);
 	},
 
 	// @inheritdoc

@@ -1,0 +1,1 @@
+C:\Users\Alexander.Poterenko\bin\Sencha\Cmd\6.0.0.202\sencha app build development

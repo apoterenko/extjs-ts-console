@@ -1,0 +1,41 @@
+@import './radio_slider';
+@import './checkbox_animated';
+
+/*
+ * This is is imported by virtue of "sass.etc" in "app.json".
+ */
+
+.admin-edit {
+
+    // Icons
+
+    .contact-information {
+        .icon {
+            background-image: url("/resources/images/ico_contact_info_24px.png");
+        }
+    }
+
+    .backup-notifications {
+        .icon {
+            background-image: url("/resources/images/ico_mail_notification_24px.png");
+        }
+    }
+
+    .business-notifications {
+        .icon {
+            background-image: url("/resources/images/ico_mail_notification_24px.png");
+        }
+    }
+
+    .status {
+        .icon {
+            background-image: url("/resources/images/settings_state_64px.png");
+            background-position: -20px -20px;
+        }
+    }
+
+    .icon {
+        background-repeat: no-repeat;
+    }
+
+}

@@ -1,0 +1,76 @@
+/**
+ * Based on http://cssdeck.com/labs/ufct35ys5t/
+ */
+.toggle_radio {
+    $switcher_size: 20px;
+
+    background: transparent url("/resources/images/backup-notification-slider.png") no-repeat center bottom;
+    padding: 0;
+
+    * {
+        background-color: transparent;
+    }
+
+    input, .toggle_option .x-form-radio {
+        display: none;
+    }
+
+    .toggle_option_slider {
+        height: $switcher_size;
+        width: $switcher_size;
+        position: absolute;
+        top: 36px !important;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        border-radius: 50px;
+        -webkit-transition: all .4s ease;
+        -moz-transition: all .4s ease;
+        -o-transition: all .4s ease;
+        -ms-transition: all .4s ease;
+        transition: all .4s ease;
+        background: #FFFFFF;
+        border: 2px solid #2D2E2D;
+    }
+
+    $offset_list: 0 25 33 50 67 75 100;
+    $offset_percent: 0 25% 33% 50% 67% 75% 100%;
+
+    @for $i from 1 through length($offset_list) {
+        $offset: nth($offset_list, $i);
+        .toggle_#{$offset}.x-form-cb-checked ~ .toggle_option_slider {
+            left: nth($offset_percent, $i) !important;
+            margin-left: -$switcher_size*$offset/100 !important;
+        }
+    }
+
+    // The "toggle_option" class attached to "..._toggle" elements
+
+    .toggle_option label {
+        color: #A0A0A0;
+        cursor: pointer;
+    }
+    .toggle_option.x-form-cb-checked label {
+        color: #000000;
+    }
+
+    .toggle_option label {
+        // in order to increase the clickable area
+        width: 100%;
+    }
+
+    .toggle_option label, div {
+        height: 100%;
+    }
+
+    .toggle_option label {
+        padding: 0;
+        text-align: center;
+    }
+    .toggle_option.first label {
+        text-align: left;
+    }
+    .toggle_option.last label {
+        text-align: right;
+    }
+
+}

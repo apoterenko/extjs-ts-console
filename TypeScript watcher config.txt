@@ -1,0 +1,3 @@
+C:\Program Files\nodejs\node.exe
+Compiles .ts files into .js files
+Q:\projects\PUBLIC-EXTJS-TYPESCRIPT-CONSOLE\packages\typescriptextjs\built\local\tsc.js --target es6  --module amd $FilePath$

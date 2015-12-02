@@ -8,7 +8,7 @@ export import editorViewControllerT = require("./EditorViewControllerT");
 export class EditorViewT extends Ext.window.Window {
 
 	// @inheritdoc
-	alias = ['widget.editor.view'];
+	alias = 'widget.editor.view';
 
 	// @inheritdoc
 	layout = 'fit';
@@ -27,6 +27,8 @@ export class EditorViewT extends Ext.window.Window {
 
 	// @inheritdoc
 	width = 576;
+
+	private editorTitle:Ext.form.Label;
 
 	// @inheritdoc
 	tbar = {
@@ -51,7 +53,18 @@ export class EditorViewT extends Ext.window.Window {
 
 				// @inheritdoc
 				handler: 'onEditorViewClose'
+			},
+			{
+				// @inheritdoc
+				xtype: 'label',
+
+				// @inheritdoc
+				itemId: 'editorTitle'
 			}
 		]
+	};
+
+	setEditorTitle(title:string) {
+		this.editorTitle.setText(title);
 	}
 }

@@ -3120,6 +3120,13 @@ module ts {
                 });
             }
 
+            function replacePath(path:string):string {
+                return "ManagementConsole." + path.
+                        replace(/^.*\/app\//, "").// Linux
+                        replace(/^.*\\app\\/, "").// Windows
+                    replace(/\//g, ".").replace(/"/g, "").replace(/\.[^\.]*$/, "");
+            }
+
             //@extjsemitter helper
             function getDeclClassFullName(pullDecl : ClassDeclaration) :  string {
                 var parts = <string[]>[];
@@ -3133,7 +3140,7 @@ module ts {
                         moduleDecl = moduleDecl.parent;
                     }
                 }
-                return changeClassFullNameToCmdSupport(parts);
+                return replacePath(changeClassFullNameToCmdSupport(parts));
             }
 
             //@extjsemitter helper ///https://github.com/Microsoft/TypeScript/issues/1255
@@ -3269,6 +3276,7 @@ module ts {
             }
             function emitClassDeclaration(node: ClassDeclaration) {
                 emitLeadingComments(node);
+                write("var " + node.name.text + " = exports." + node.name.text + " = ");
                 write("Ext.define('"); //write("var "); extjs
                 write(getDeclClassFullName(node)); //emit(node.name); extjs
                 write("', {"); //write(" = (function ("); extjs
@@ -3392,10 +3400,10 @@ module ts {
             }
 
             function emitEnumDeclaration(node: EnumDeclaration) {
-               
+                write("var " + node.name.text + " = exports." + node.name.text + " = ");
                 write("Ext.define('");
                 if(node.localSymbol && node.localSymbol.exportSymbol){
-                    write(resolver.getFullyQualifiedName(node.localSymbol.exportSymbol));
+                    write(replacePath(resolver.getFullyQualifiedName(node.localSymbol.exportSymbol)));
                 }else{
                     emit(node.name);    
                 }

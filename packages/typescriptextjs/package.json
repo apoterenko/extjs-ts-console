@@ -1,0 +1,48 @@
+{
+	"name": "typescript-extjs",
+	"author": "Microsoft Corp. & Contributors",
+	"homepage": "https://github.com/fabioparra/TypeScript",
+	"version": "1.4.3",
+	"licenses": [
+		{
+			"type": "Apache License 2.0", 
+			"url": "https://github.com/Microsoft/TypeScript/blob/master/LICENSE.txt"
+		}
+	],
+	"description": "A fork of TypeScript 1.4 that emits classes in a way that ExtJS understands",
+	"keywords": [
+		"TypeScript", 
+		"Microsoft", 
+		"compiler", 
+		"language", 
+		"javascript",
+		"ExtJS",
+		"Sencha"
+	],
+	"bugs": {
+		"url" : "https://github.com/fabioparra/TypeScript/issues"
+	},
+	"repository" : { 
+		"type" : "git",	
+		"url" : "https://github.com/fabioparra/TypeScript.git"
+	},
+	"preferGlobal" : true,
+	"main" : "./bin/typescriptServices.js",
+	"bin" : { 
+		"tsc-extjs" : "./bin/tsc"
+	},
+	"engines" : { 
+		"node" : ">=0.8.0" 
+	},
+	"devDependencies": {
+		"jake" : "latest",
+		"mocha" : "latest",
+		"chai" : "latest",
+		"browserify" : "latest",
+		"istanbul": "latest",
+		"codeclimate-test-reporter": "latest"
+	},
+	"scripts": {
+		"test": "jake generate-code-coverage"
+	}
+}

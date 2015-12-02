@@ -1865,7 +1865,7 @@ declare module Ext.app {
         getReferences():any;
         getSession():Ext.data.Session;
         getStore(name: string):Ext.data.Store;
-        getView():Ext.Component;
+        getView(): Ext.container.Container;
         getViewModel():Ext.app.ViewModel;
         init(view: Ext.Component):void;
         initViewModel(viewModel: Ext.app.ViewModel):void;

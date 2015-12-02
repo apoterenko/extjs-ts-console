@@ -1,0 +1,19 @@
+.#{$prefix}slider-horz .#{$prefix}slider-thumb {
+  background-image: url('images/field/slider-thumb.png');
+  width: 20px;
+  height: 20px;
+  margin-top: -2px;
+  &.#{$prefix}slider-thumb-over {
+	background-position: 0;
+  }
+}
+
+.#{$prefix}slider-focus {
+  .#{$prefix}slider-thumb {
+	background-position: 0 !important;
+  }
+}
+
+.labelled-slider-title {
+  line-height: 48px;
+}

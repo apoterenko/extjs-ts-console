@@ -1,0 +1,9 @@
+/**
+ * Creates a visual theme for a "editor"-ui window.
+ * @member Ext.window.Window
+ */
+@include extjs-window-ui(
+  $ui: 'editor',
+  $ui-border-radius: 0,
+  $ui-ignore-frame-padding: true
+);

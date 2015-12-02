@@ -1,0 +1,63 @@
+/**
+ * Creates a visual theme for a "property"-ui tab.
+
+ * @member Ext.tab.Tab
+ */
+@include extjs-tab-ui(
+  $ui: 'property',
+
+  $ui-font-size: $property-font-size,
+
+  $ui-background-color: $palette-property-toolbar-background-color,
+  $ui-background-color-focus: $palette-property-toolbar-background-color,
+  $ui-background-color-over: $palette-property-toolbar-background-color,
+  $ui-background-color-active: $palette-property-toolbar-background-color
+);
+
+@mixin extjs-property-tab-ui {
+  @include get-property-icon($icon: 'bar');
+  background-position: bottom;
+  background-repeat: repeat-x;
+}
+
+.#{$prefix}tab-bar-property {
+  @include extjs-property-tab-ui()
+}
+
+.#{$prefix}tab {
+
+  &.#{$prefix}tab-active, &.#{$prefix}tab-pressed, &.#{$prefix}tab-over {
+    &.#{$prefix}tab-property-top {
+      background: transparent;
+    }
+  }
+
+  &.#{$prefix}tab-property {
+    padding: 0;
+    background: transparent;
+
+    &.#{$prefix}tab-focus {
+      .#{$prefix}tab-button:before {
+        outline: none;
+      }
+    }
+
+    &.#{$prefix}tab-active {
+
+      .#{$prefix}tab-icon-el-property {
+        @include get-property-icon($icon: 'bar_selected');
+        background-repeat: no-repeat;
+        background-position: center bottom;
+        display: block;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    .#{$prefix}tab-inner-property {
+      padding: 16px;
+      @include extjs-property-tab-ui();
+    }
+  }
+}

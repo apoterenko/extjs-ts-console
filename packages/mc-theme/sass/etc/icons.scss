@@ -1,0 +1,26 @@
+@mixin get-icon($icon) {
+  background-image: url('images/#{$icon}.png');
+  background-repeat: no-repeat;
+}
+
+@mixin get-navigation-icon($icon) {
+  @include get-icon('navigation/#{$icon}')
+}
+
+@mixin get-property-icon($icon) {
+  @include get-icon('property/#{$icon}')
+}
+
+.icon-groups { @include get-navigation-icon($icon: 'groups'); }
+.icon-reports { @include get-navigation-icon($icon: 'reports'); }
+.icon-powered { @include get-navigation-icon($icon: 'powered'); background-position: bottom;}
+.icon-info { @include get-navigation-icon($icon: 'info'); }
+.icon-user { @include get-property-icon($icon: 'user'); }
+.icon-help { @include get-property-icon($icon: 'help'); }
+.icon-search { @include get-property-icon($icon: 'search'); }
+.icon-add { @include get-property-icon($icon: 'add'); }
+.icon-enable-disable { @include get-property-icon($icon: 'enable-disable'); }
+.icon-reset-password { @include get-property-icon($icon: 'reset-password'); }
+.icon-delete { @include get-property-icon($icon: 'delete'); }
+.icon-status { @include get-property-icon($icon: 'status'); }
+.icon-close { @include get-property-icon($icon: 'close'); }

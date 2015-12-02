@@ -1,0 +1,94 @@
+/**
+ * Creates a visual theme for a Ext.tree.Panel.
+ *
+ * @member Ext.tree.Panel
+ */
+@mixin extjs-tree-ui(
+  $ui: null,
+  $ui-grid-item-color: null,
+  $ui-grid-item-font-size: null,
+  $ui-grid-item-background-color: null,
+  $ui-grid-item-background-over-color: null,
+  $ui-grid-item-background-selected-color: null,
+  $ui-tree-node-text-font-size: null,
+  $ui-tree-node-text-line-height: null,
+  $ui-tree-elbow-img-size: null
+) {
+
+  .#{$prefix}panel-#{$ui} {
+
+    .#{$prefix}grid-item {
+      color: $ui-grid-item-color;
+      border: none;
+      background-color: $ui-grid-item-background-color;
+
+      .#{$prefix}tree-node-text {
+        font-size: $ui-tree-node-text-font-size;
+        line-height: $ui-tree-node-text-line-height;
+        color: $ui-grid-item-color;
+      }
+
+      .#{$prefix}tree-icon {
+        display: none;
+      }
+
+      .#{$prefix}tree-elbow-line {
+        background: none;
+      }
+
+      .#{$prefix}tree-elbow-img {
+        width: $ui-tree-elbow-img-size;
+        height: $ui-tree-elbow-img-size;
+
+        &.#{$prefix}tree-elbow-line, &.#{$prefix}tree-elbow-empty {
+          width: $ui-tree-elbow-img-size / 2;
+        }
+      }
+
+      .#{$prefix}tree-elbow-plus {
+        @include get-navigation-icon($icon: 'plus');
+      }
+
+      .#{$prefix}tree-elbow-end-plus {
+        @include get-navigation-icon($icon: 'minus');
+      }
+
+      .#{$prefix}grid-tree-node-expanded {
+
+        .#{$prefix}tree-elbow-plus {
+          @include get-navigation-icon($icon: 'minus');
+        }
+      }
+
+      &.#{$prefix}grid-item-selected {
+        background-color: $ui-grid-item-background-selected-color;
+      }
+
+      &.#{$prefix}grid-item-over {
+        background-color: $ui-grid-item-background-over-color;
+      }
+    }
+  }
+}
+
+/**
+ * Creates a visual theme for a "navigation-tree"-ui panel.
+ * @member Ext.panel.Panel
+ */
+@include extjs-panel-ui(
+  $ui: 'navigation-tree',
+
+  $ui-body-background-color: $palette-navigation2-background-color
+);
+
+@include extjs-tree-ui(
+  $ui: 'navigation-tree',
+
+  $ui-tree-node-text-font-size: 13px,
+  $ui-tree-node-text-line-height: 26px,
+  $ui-tree-elbow-img-size: 32px,
+  $ui-grid-item-color: $palette-navigation-text-color,
+  $ui-grid-item-background-color: $palette-navigation2-background-color,
+  $ui-grid-item-background-over-color: $palette-navigation2-over-background-color,
+  $ui-grid-item-background-selected-color: $palette-navigation2-selected-background-color
+);

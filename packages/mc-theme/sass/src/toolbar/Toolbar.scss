@@ -1,0 +1,28 @@
+/**
+ * Creates a visual theme for a "property"-ui toolbar.
+ * @member Ext.toolbar.Toolbar
+ */
+@include extjs-toolbar-ui(
+  $ui: 'property',
+
+  $vertical-spacing: 0,
+  $vertical-spacing: 0,
+  $horizontal-spacing: 0,
+  $background-color: $palette-property-toolbar-background-color
+);
+
+.#{$prefix}toolbar-property {
+
+  border-top-width: 1px !important;
+  border-bottom-width: 1px !important;
+  border-top-color: $palette-property-border-color;
+  border-bottom-color: $palette-property-border-color;
+
+  &.property-top {
+    border-top: none;
+  }
+
+  &.property-bottom {
+    border-bottom: none;
+  }
+}

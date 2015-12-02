@@ -1,0 +1,18 @@
+.#{$prefix}grid-item {
+
+  .icon-status {
+	width: 32px;
+	height: 32px;
+  }
+}
+
+.property-action {
+
+  .#{$prefix}grid-item {
+
+	&.#{$prefix}grid-item-selected {
+	  @include get-property-icon($icon: 'show_details');
+	  background-position: right;
+	}
+  }
+}
